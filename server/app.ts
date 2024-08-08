@@ -15,6 +15,9 @@ app.use(cors({
      origin: process.env.ORIGIN
 }));
 
+//routes
+app.use("api/v1", );
+
 //tesing the server
 app.use("/test", (req: Request, res: Response)=> {
      res.send("Server is running");
