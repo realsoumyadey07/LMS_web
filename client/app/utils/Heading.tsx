@@ -6,11 +6,9 @@ interface HeadProps {
      keywords: string;
 }
 
-const Heading: FC<HeadProps> =({title, description, keywords})=> {
+const Heading: FC<HeadProps> = ({ title, description, keywords }) => {
      return (
-          <>
-               
-          </>
+          <></>
      )
 }
 
