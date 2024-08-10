@@ -29,15 +29,15 @@ type Props = {
   isMobile: boolean;
 }
 
-const NavItems: React.FC<Props> = ({activeItem, isMobile}) => {
+const NavItems: React.FC<Props> = ({ activeItem, isMobile }) => {
   return (
     <>
       <div className="hidden 800px:flex">
         {
-          navItemData && navItemData.map((item, index)=> (
+          navItemData && navItemData.map((item, index) => (
             <Link key={index} href={`${item.url}`}>
               <span className={`${activeItem === index ? "dark:text-[#37a39a] text-[crimson]" : "dark:text-white text-black"} text-[18px] px-6 font-Poppins font-[400]`}>
-                  {item.name}
+                {item.name}
               </span>
             </Link>
           ))
@@ -45,18 +45,23 @@ const NavItems: React.FC<Props> = ({activeItem, isMobile}) => {
       </div>
       {
         isMobile && (
-          <div className="800px:hidden mt-5">
-            <div className="w-full-text-center py-6">
-              {
-                navItemData && navItemData.map((item, index)=> (
-                  <Link href={"/"} passHref>
-                <span className={`${activeItem === index ? "dark:text-[#37a39a] text-[crimson]" : "dark:text-white text-black"} text-[18px] px-6 font-Poppins font-[400]`}>
-
+          <div className="800px:hidden mt-5 flex flex-col">
+            <div className='w-full text-center py-6'>
+              <Link href="/" passHref>
+                <span className={`text-[25px] font-Poppins font-[500] text-black dark:text-white`}>
+                  Youdemy
                 </span>
-              </Link>
-                ))
-              }
+                </Link>
             </div>
+            {
+              navItemData && navItemData.map((item, index) => (
+                <Link href={item.url} className='my-3' passHref>
+                  <span className={`${activeItem === index ? "dark:text-[#37a39a] text-[crimson]" : "dark:text-white text-black"} text-[18px] px-6 font-Poppins font-[400]"`}>
+                    {item.name}
+                  </span>
+                </Link>
+              ))
+            }
           </div>
         )
       }
