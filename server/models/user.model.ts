@@ -38,7 +38,8 @@ const userSchema: Schema<IUser> = new Schema({
      },
      password: {
           type: String,
-          required: [true, "Password is requied"]
+          required: [true, "Password is requied"],
+          select: false
      },
      avatar: {
           public_id: String,
