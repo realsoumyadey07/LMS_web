@@ -26,7 +26,7 @@ const Hero: FC<Props> = (props) => {
           <input 
           type="search" 
           placeholder='Search courses here...'
-          className='bg-transparent border dark:border-none dark:bg-[#575757] dark:placeholder:text-[#ffffffdd] rounded-[5px] p-2 w-full h-full outline-none text-[#0000004e] dark:text-[#ffffffe6] text-[20px] font-[500] font-Josefin'
+          className='bg-transparent border dark:border-none dark:bg-[#575757] dark:placeholder:text-[#ffffffdd] rounded-[5px] p-2 px-5 w-full h-full outline-none text-[#0000004e] dark:text-[#ffffffe6] text-[20px] font-[500] font-Josefin'
           />
           <div className='absolute flex items-center justify-center w-[50px] cursor-pointer h-[50px] right-0 top-0 bg-[#2942ff] rounded-r-[5px]'>
             <BiSearch className='text-white' size={30}/>
@@ -37,8 +37,8 @@ const Hero: FC<Props> = (props) => {
         <div className='1500px:w-[55%] 1100px:w-[78%] w-[90%] flex items-center'>
           <img src="https://edmy-react.hibootstrap.com/images/banner/client-3.jpg" alt="" className='rounded-full' />
           <img src="https://edmy-react.hibootstrap.com/images/banner/client-1.jpg" alt="" className='rounded-full ml-[-20px]'/>
-          <img src="https://edmy-react.hibootstrap.com/images/banner/client-2.jpg" alt="" className='rounded-full ml-[-40]'/>
-          <p className='font-Josefin dark:text-[#edfff4] text-[#000000b3] 1000px:pl-3 text-[18px] font-[600]'>500k+ People already trusted us.{" "}
+          <img src="https://edmy-react.hibootstrap.com/images/banner/client-2.jpg" alt="" className='rounded-full ml-[-20px]'/>
+          <p className='font-Josefin dark:text-[#edfff4] text-[#000000b3] 1000px:pl-3 text-[18px] font-[600] pl-2'>500k+ People already trusted us.{" "}
             <Link 
             href={"/courses"}
             className='dark:text-[#46e256] text-[crimson]'
