@@ -95,7 +95,7 @@ const Login: FC<Props> = ({ setRoute }) => {
           <FcGoogle size={30} className='cursor-pointer mr-2' />
           <AiFillGithub size={30} className='cursor-pointer mr-2' />
         </div>
-        <h5 className='text-center pt-4 font-Poppins text-[14px]'>Not have any account?{" "}
+        <h5 className='text-center dark:text-white text-black pt-4 font-Poppins text-[14px]'>Don't have any account?{" "}
           <span
             className='text-[#2190ff] pl-1 cursor-pointer'
             onClick={() => setRoute("Sign-Up")}

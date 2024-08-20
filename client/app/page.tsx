@@ -4,9 +4,9 @@ import Heading from './utils/Heading';
 import Header from './components/Header';
 import Hero from "./components/Route/Hero";
 
-interface Props {}
+interface Props { }
 
-const Page: FC<Props> = (props)=> {
+const Page: FC<Props> = (props) => {
   const [open, setOpen] = useState(false);
   const [activeItem, setActiveItem] = useState(0);
   const [route, setRoute] = useState("Login");
@@ -24,7 +24,7 @@ const Page: FC<Props> = (props)=> {
         setRoute={setRoute}
         route={route}
       />
-      <Hero/>
+      <Hero />
     </>
   )
 }

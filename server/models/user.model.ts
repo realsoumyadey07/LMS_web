@@ -1,4 +1,4 @@
-import mongoose, { Document, Schema } from "mongoose";
+import mongoose, { Document, Model, Schema } from "mongoose";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 require("dotenv").config();
@@ -29,6 +29,7 @@ const userSchema: Schema<IUser> = new Schema({
      email: {
           type: String,
           required: [true, "Email is required!"],
+          unique: true,
           validate: {
                validator: function (value: string){
                     return emailRegexPattern.test(value);
@@ -38,6 +39,7 @@ const userSchema: Schema<IUser> = new Schema({
      },
      password: {
           type: String,
+          minlength: [6, "Password nust be at least of 6 characters"],
           required: [true, "Password is requied"],
           select: false
      },
@@ -76,17 +78,17 @@ userSchema.methods.comparePassword = async function (enteredPassword: string): P
 }
 
 //sign accessToken
-userSchema.methods.SignAccessToken =async function() {
-     return await jwt.sign({ id: this._id}, process.env.ACCESS_TOKEN || "", {
-          expiresIn: process.env.ACCESS_TOKEN_EXPIRE
+userSchema.methods.SignAccessToken = async function() {
+     return jwt.sign({ id: this._id}, process.env.ACCESS_TOKEN || "", {
+          expiresIn: "5m",
      })
 }
 
 //sign refreshToken
 userSchema.methods.SignRefreshToken = async function () {
-     return await jwt.sign({id: this._id}, process.env.ACCESS_TOKEN || "", {
-          expiresIn: process.env.REFRESH_TOKEN_EXPIRE
+     return jwt.sign({id: this._id}, process.env.REFRESH_TOKEN || "", {
+          expiresIn: "3d",
      })
 }
 
-export const userModel = mongoose.model("User", userSchema);
+export const userModel: Model<IUser> = mongoose.model("User", userSchema);
