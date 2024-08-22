@@ -4,6 +4,7 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 import { ErrorMiddleware } from "./middlewares/error.middleware";
 import userRouter from "./routes/user.route";
+import courseRouter from "./routes/course.route";
 require("dotenv").config();
 
 app.use(express.json({
@@ -19,6 +20,7 @@ app.use(cors({
 
 //routes
 app.use("/api/v1", userRouter);
+app.use("/api/v1", courseRouter);
 
 //tesing the server
 app.use("/test", (req: Request, res: Response)=> {
